@@ -1,0 +1,23 @@
+name: QAQ
+
+on:
+pull_request:
+branches:
+-develop
+
+jobs:
+flake8:
+name: flake 8 lint
+runs-on: ubuntu-latest
+steps:
+name: Checkout
+uses: actions/checkout@v4
+
+name: set up Python
+uses: actions/setup-python@v5
+with:
+python-version: "3.12"
+name: install flake8
+run: pop install flake8
+name: run flake8
+run: flake8 .
